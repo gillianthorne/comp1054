@@ -1,0 +1,62 @@
+main {
+    column-count: 3;
+    column-gap: 25px;
+}
+
+#page {
+    width: 700px;
+    margin: 10px auto;
+}
+
+main p {
+    margin-top: 0;
+    margin-bottom: 0;
+    text-indent: 20px;
+    text-align: justify;
+    line-height: 1;
+    hyphens: auto;
+}
+
+main p:first-child {
+    text-indent: 0;
+}
+
+header {
+    text-transform: uppercase;
+}
+
+header p {
+    font-weight: bold;
+    margin: 5px 0;
+    letter-spacing: 1px;
+    text-align: justify;
+    font-size: 1.5em;
+}
+
+
+h2 {
+    text-align: center;
+    font-weight: normal;
+    margin: 0;
+    font-size: 4em;
+}
+
+h1, h2, h4, header p {
+    font-family: "Pathway Gothic One", sans-serif;
+}
+
+h4 {
+    margin: 15px 0;
+    font-size: 1.2em;
+    letter-spacing: 1px;
+}
+
+h1 {
+    font-family: "Comfortaa", sans-serif;
+    border: 3px solid black;
+    width: fit-content;
+    padding: 3px;
+    font-weight: normal;
+    letter-spacing: 3px;
+    font-size: 1.5em;
+}
