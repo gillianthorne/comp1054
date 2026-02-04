@@ -1,0 +1,42 @@
+html {
+    box-sizing: border-box;
+}
+
+*, *::before, *::after {
+	box-sizing: inherit;
+}
+
+body {
+    background-color: #eeece8;
+    padding: 50px;
+    
+}
+
+header, main {
+    width: 90%;
+    margin: 0 auto;
+}
+
+main {
+    background-color: #aea89d;
+    display: flex;
+    flex-direction: row;
+}
+
+article {
+    text-align: center;
+    flex-basis: 60%;
+    border-right: 1px #968f85 solid;
+}
+
+aside {
+    flex-basis: 40%;
+}
+
+img {
+    width: 100%;
+}
+
+article, aside {
+    padding: 10px
+}
