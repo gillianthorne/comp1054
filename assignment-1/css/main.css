@@ -1,7 +1,9 @@
+/* gradients copied from https://cssgradient.io/ */
+
+
 html {
     box-sizing: border-box;
     background-color: #eeece8;
-    padding: 50px;
 }
 
 *, *::before, *::after {
@@ -9,8 +11,8 @@ html {
 }
 
 body {
-    width: 90%;
-    margin: 0 auto;    
+    width: 80%;
+    margin: 50px auto;    
     background: #D0CCC3;
     background: linear-gradient(90deg,rgba(208, 204, 195, 1) 0%, rgba(250, 250, 246, 1) 23%, rgba(186, 179, 170, 1) 100%);    
 }
@@ -18,13 +20,12 @@ body {
 header {
     color: #eeece8;
     text-transform: uppercase;
-    padding: 5px;
+    padding: 30px 5px;
     text-align: center;
     background: #756B62;
     background: linear-gradient(90deg,rgba(117, 107, 98, 1) 0%, rgba(164, 157, 147, 1) 23%, rgba(108, 100, 91, 1) 100%);
     
 }
-
 
 main {
     display: flex;
