@@ -1,0 +1,44 @@
+@charset "utf-8";
+
+/* set up the box model */
+html {
+    box-sizing: border-box;
+}
+*, *::before, *::after {
+    box-sizing: inherit;
+}
+
+header {
+    border: 3px solid green;
+    float: left;
+}
+
+main {
+    clear: both;
+    display: flow-root;
+}
+
+#container {
+    width: 80%;
+    margin: 0 auto;
+}
+
+main > aside {
+    width: 40%;
+    padding: 20px;
+    border: 3px solid blue;
+}
+
+main > article {
+    width: 60%;
+    float: right;
+    border: 3px solid red;
+}
+
+img[src="images/dog-and-owner.webp"] {
+    width: 35%;
+}
+
+img[src="images/snow-tubing.webp"] {
+    width: 100%;
+}
