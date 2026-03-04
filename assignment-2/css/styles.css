@@ -8,37 +8,85 @@ html {
     box-sizing: inherit;
 }
 
-header {
-    border: 3px solid green;
-    float: left;
-}
-
+/* main  */
 main {
     clear: both;
     display: flow-root;
 }
 
+/* container */
 #container {
     width: 80%;
     margin: 0 auto;
+    font-family: "Roboto Flex", sans-serif;
 }
 
+/* header */
+header {
+    float: left;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+header h1 {
+    height: fit-content;
+    order: 2;
+    width: 100%;
+    border-top: 1px solid gray;
+    border-left: 1px solid gray;
+    line-height: .77;
+    text-transform: lowercase;
+    font-weight: 800;
+    font-size: 3em;
+    margin: 0;
+}
+
+/* changing the margin on the em moves the whole h1 text
+    because it's inline */
+h1 em {
+    font-style: normal;
+    color: red;
+    margin-left: -2px;
+}
+
+header p {
+    order: 1;
+    text-transform: uppercase;
+    margin: 20px 0 0 0;
+    line-height: .7;
+}
+
+/* aside directly inside of main */
 main > aside {
     width: 40%;
     padding: 20px;
     border: 3px solid blue;
 }
 
+/* article directly inside of main */
 main > article {
     width: 60%;
     float: right;
     border: 3px solid red;
 }
 
+/* dog and owner image */
 img[src="images/dog-and-owner.webp"] {
-    width: 35%;
+    width: 40%;
 }
 
+/* snow tubing image */
 img[src="images/snow-tubing.webp"] {
     width: 100%;
+}
+
+/* align just the photo in the first article to the right, 
+    reset everything else inside of the article to the left */
+main article:first-child {
+    text-align: right;
+}
+
+main article:first-child p, main article:first-child h2 {
+    text-align: left;
 }
