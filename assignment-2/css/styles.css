@@ -8,22 +8,25 @@ html {
     box-sizing: inherit;
 }
 
-/* main  */
+/* ----- main -----  */
 main {
-    clear: both;
-    display: flow-root;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row-reverse;
 }
 
-/* container */
+/* ----- container ----- */
 #container {
     width: 80%;
+    max-width: 760px;
     margin: 0 auto;
     font-family: "Roboto Flex", sans-serif;
+    text-wrap: wrap;
+    overflow-wrap: break-word;
 }
 
-/* header */
+/* ----- header ----- */
 header {
-    float: left;
     width: 100%;
     display: flex;
     flex-direction: column;
@@ -38,8 +41,9 @@ header h1 {
     line-height: .77;
     text-transform: lowercase;
     font-weight: 800;
-    font-size: 3em;
+    font-size: 6em;
     margin: 0;
+    flex-basis: 100%;
 }
 
 /* changing the margin on the em moves the whole h1 text
@@ -57,23 +61,42 @@ header p {
     line-height: .7;
 }
 
-/* aside directly inside of main */
+/* ----- aside directly inside of main ----- */
 main > aside {
-    width: 40%;
-    padding: 20px;
-    border: 3px solid blue;
+    width: 30%;
+    padding: 15px 20px;
+    border-left: 1px gray solid;
 }
 
-/* article directly inside of main */
+main aside:first-child {
+    order: 1;
+}
+
+main aside:last-child {
+    order: 3;
+}
+
+/* ----- article directly inside of main ----- */
 main > article {
-    width: 60%;
-    float: right;
-    border: 3px solid red;
+    padding: 20px;
+    width: 70%;
 }
 
 /* dog and owner image */
 img[src="images/dog-and-owner.webp"] {
     width: 40%;
+    margin-top: -75px;
+}
+
+main article:first-child h2 {
+    color: red;
+    font-size: 2em;
+    margin: 0;
+}
+
+main article:nth-child(2) h2 {
+    font-size: 3em;
+    font-weight: normal;
 }
 
 /* snow tubing image */
@@ -84,9 +107,19 @@ img[src="images/snow-tubing.webp"] {
 /* align just the photo in the first article to the right, 
     reset everything else inside of the article to the left */
 main article:first-child {
+    padding-top: 0;
     text-align: right;
 }
 
 main article:first-child p, main article:first-child h2 {
     text-align: left;
+}
+
+main article:nth-child(2) {
+    order: 2;
+}
+
+/* ----- footer ----- */
+footer {
+    border-top: 1px gray solid;
 }
