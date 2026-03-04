@@ -13,6 +13,9 @@ main {
     display: flex;
     flex-wrap: wrap;
     flex-direction: row-reverse;
+    border-left: 1px solid gray;
+    border-bottom: 1px solid gray;
+    color: black;
 }
 
 /* ----- container ----- */
@@ -23,6 +26,18 @@ main {
     font-family: "Roboto Flex", sans-serif;
     text-wrap: wrap;
     overflow-wrap: break-word;
+    line-height: 1.5;
+}
+
+/* ----- default formatting for different elements */
+p {
+    font-size: 16px;
+}
+
+a:hover, a:focus, a:active, a:visited, a:link {
+    color: black;
+    text-decoration: none;
+    font-weight: bold;
 }
 
 /* ----- header ----- */
@@ -44,6 +59,7 @@ header h1 {
     font-size: 6em;
     margin: 0;
     flex-basis: 100%;
+    padding-bottom: 30px;
 }
 
 /* changing the margin on the em moves the whole h1 text
@@ -63,35 +79,59 @@ header p {
 
 /* ----- aside directly inside of main ----- */
 main > aside {
-    width: 30%;
+    width: 35%;
     padding: 15px 20px;
-    border-left: 1px gray solid;
 }
 
-main aside:first-child {
-    order: 1;
+main aside:first-of-type p:first-child {
+    font-size: 1.1em;
+    line-height: 1.7;
 }
 
+main aside p {
+    margin-top: 0;
+}
+
+/* setting up the second aside */
 main aside:last-child {
-    order: 3;
+    order: 2;
+    background-color: lightgrey;
+    z-index: 1;
+}
+
+/* all of this adds the plus symbol and positions it correctly with the h2 */
+main aside:last-child h2::before {
+    content: "";
+    display: inline-block;
+    width: 50px;
+    height: 50px;
+    background-image: url("/assignment-2/images/plus-symbol.png");
+    background-size: cover;
+    z-index: 2;
+    position: absolute;
+    top: -30px;
+    left: -50px;
+}
+
+main aside:last-child h2 {
+    color: red;
+    font-size: 1.25em;
+    position: relative;
+    top: 5px;
+    left: 35px;
 }
 
 /* ----- article directly inside of main ----- */
 main > article {
     padding: 20px;
-    width: 70%;
+    width: 65%;
 }
 
-/* dog and owner image */
-img[src="images/dog-and-owner.webp"] {
-    width: 40%;
-    margin-top: -75px;
-}
 
 main article:first-child h2 {
     color: red;
     font-size: 2em;
-    margin: 0;
+    margin: -15px 0 0 0;
 }
 
 main article:nth-child(2) h2 {
@@ -102,6 +142,12 @@ main article:nth-child(2) h2 {
 /* snow tubing image */
 img[src="images/snow-tubing.webp"] {
     width: 100%;
+}
+
+/* dog and owner image */
+img[src="images/dog-and-owner.webp"] {
+    width: 50%;
+    margin-top: -110px;
 }
 
 /* align just the photo in the first article to the right, 
@@ -116,10 +162,26 @@ main article:first-child p, main article:first-child h2 {
 }
 
 main article:nth-child(2) {
-    order: 2;
+    order: 1;
 }
 
-/* ----- footer ----- */
-footer {
-    border-top: 1px gray solid;
+/* ----- styling for the second aside */
+h3 {
+    font-size: 16px;
+    margin: 0;
+    padding: 0;
+    
+}
+
+li p {
+    margin: 0;
+}
+
+ul {
+    list-style: "+";
+    padding: 0;
+}
+
+li {
+    padding-left: 5px;
 }
