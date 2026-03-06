@@ -80,16 +80,23 @@ header p {
 /* ----- aside directly inside of main ----- */
 main > aside {
     width: 35%;
-    padding: 15px 20px;
 }
 
-main aside:first-of-type p:first-child {
-    font-size: 1.1em;
+main aside:first-of-type {
+    padding: 15px 0 30px 0;
+}
+
+main aside:first-of-type p{
+    margin: 0;
+    font-size: 1.3em;
     line-height: 1.7;
+    border-right: 1px solid gray;
+    padding: 7px 20px;
+    font-weight: 200;
 }
 
 main aside p {
-    margin-top: 0;
+    margin: 0;
 }
 
 /* setting up the second aside */
@@ -97,28 +104,36 @@ main aside:last-child {
     order: 2;
     background-color: lightgrey;
     z-index: 1;
+    padding: 15px 20px;
 }
 
 /* all of this adds the plus symbol and positions it correctly with the h2 */
 main aside:last-child h2::before {
-    content: "";
+    content: "+";
+    font-size: 5em;
+    font-weight: 300;
     display: inline-block;
-    width: 50px;
-    height: 50px;
-    background-image: url("/assignment-2/images/plus-symbol.png");
     background-size: cover;
     z-index: 2;
     position: absolute;
-    top: -30px;
+    top: -85px;
     left: -50px;
+    color: black;
 }
 
 main aside:last-child h2 {
     color: red;
-    font-size: 1.25em;
+    font-size: 1.4em;
     position: relative;
-    top: 5px;
+    top: 20px;
     left: 35px;
+    padding: 0;
+    margin: 0;
+}
+
+/* padding and margins being set to 0 make this paragraph overlap with the h2 so i added some margins */
+main aside:last-child > p {
+    margin-top: 20px;
 }
 
 /* ----- article directly inside of main ----- */
