@@ -13,8 +13,8 @@ main {
     display: flex;
     flex-wrap: wrap;
     flex-direction: row-reverse;
-    border-left: 1px solid gray;
-    border-bottom: 1px solid gray;
+    border-left: 1px solid rgb(195, 195, 195);
+    border-bottom: 1px solid rgb(195, 195, 195);
     color: black;
 }
 
@@ -51,8 +51,8 @@ header h1 {
     height: fit-content;
     order: 2;
     width: 100%;
-    border-top: 1px solid gray;
-    border-left: 1px solid gray;
+    border-top: 1px solid rgb(195, 195, 195);
+    border-left: 1px solid rgb(195, 195, 195);
     line-height: .77;
     text-transform: lowercase;
     font-weight: 800;
@@ -66,7 +66,7 @@ header h1 {
     because it's inline */
 h1 em {
     font-style: normal;
-    color: red;
+    color: rgb(197, 0, 0);
     margin-left: -2px;
 }
 
@@ -90,7 +90,7 @@ main aside:first-of-type p{
     margin: 0;
     font-size: 1.3em;
     line-height: 1.7;
-    border-right: 1px solid gray;
+    border-right: 1px solid rgb(195, 195, 195);
     padding: 7px 20px;
     font-weight: 200;
 }
@@ -102,12 +102,15 @@ main aside p {
 /* setting up the second aside */
 main aside:last-child {
     order: 2;
-    background-color: lightgrey;
     z-index: 1;
     padding: 15px 20px;
 }
 
-/* all of this adds the plus symbol and positions it correctly with the h2 */
+/* all of this adds the plus symbol and positions it correctly with the h2
+    https://thedivsoup.com/relative-and-absolute-position-in-css-0fa3873657fc 
+    basically having the before pseudoelement as fixed inside of a relative element
+    allows for easier placement than if it were just fixed, plus if the location
+    of the h2 changes the ::before will now move with it */
 main aside:last-child h2::before {
     content: "+";
     font-size: 5em;
@@ -122,7 +125,7 @@ main aside:last-child h2::before {
 }
 
 main aside:last-child h2 {
-    color: red;
+    color: rgb(197, 0, 0);
     font-size: 1.4em;
     position: relative;
     top: 20px;
@@ -144,7 +147,7 @@ main > article {
 
 
 main article:first-child h2 {
-    color: red;
+    color: rgb(197, 0, 0);
     font-size: 2em;
     margin: -15px 0 0 0;
 }
@@ -200,3 +203,9 @@ ul {
 li {
     padding-left: 5px;
 }
+
+mark, main aside:last-child {
+    background-image: url("/assignment-2/images/dotted-background.png");
+    background-color: rgb(233, 233, 233);
+}
+
