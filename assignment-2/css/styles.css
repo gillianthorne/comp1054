@@ -209,3 +209,26 @@ mark, main aside:last-child {
     background-color: rgb(233, 233, 233);
 }
 
+/* ----- footer ----- */
+footer {
+    font-size: 16px;
+    text-transform: lowercase;
+}
+
+footer em {
+    font-weight: bold;
+    font-style: normal;
+    margin-right: 50px;
+}
+
+/* text-decoration and border are both set to none because different browsers do it
+    differently apparently: https://stackoverflow.com/questions/26276556/remove-underlining-caused-by-abbr-tag#comment74627681_32162038
+ */
+abbr[title="Canadian Automotive Association"] {
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 11px;
+    margin-right: -3px;
+    text-decoration: none;
+    border: none;
+}
