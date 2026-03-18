@@ -1,0 +1,61 @@
+@charset "utf-8";
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
+
+/* Box-sizing reset (https://css-tricks.com/inheriting-box-sizing-probably-slightly-better-best-practice/) */
+html {
+	box-sizing: border-box;
+}
+*, *:before, *:after {
+	box-sizing: inherit;
+}
+
+html {
+	font-family: "Open Sans", sans-serif;
+}
+#container {
+	width: 60%;
+	margin: 0 auto;
+}
+
+/* set up the navigation */
+ul {
+	display: flex;
+	margin: 0;
+	padding: 0;
+}
+
+li {
+	display: inline;
+	width: 15%;
+	margin-right: 10px;
+	background-color: lightgray;
+	border: 2px solid black;
+	border-radius: 5px 5px 0 0;
+	padding: 8px 5px;
+	text-align: center;
+	margin-bottom: -1px;
+}
+
+a {
+	color: black;
+	font-weight: bold;
+	text-decoration: none;
+}
+
+/* https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Selectors/:has#:~:text=Examples-,Selecting%20a%20parent%20element,child%20with%20the%20featured%20class. */
+li:has(#selected) {
+	background-color: white;
+	border-bottom: none;
+}
+
+/* set up the display box */
+div[role="tabpanel"] {
+	border: 2px solid black;
+	display: block;
+	padding: 5px;
+}
+
+/* if the div has the hidden class, hide it */
+div .hidden {
+	display: none;
+}
