@@ -1,0 +1,51 @@
+body {
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+}
+
+table {
+    border-collapse: collapse;
+    border: 1px solid #E0E0E0;
+}
+
+td, th {
+    padding: 0.25em;
+    border-left: none;
+    border-right: none
+}
+
+th {
+    background: #33058D;
+    color: white;
+    text-align: center;
+}
+
+/* this selector gets all rows except the first, and then within those rows it gets all cells except the first two */
+table tr:nth-child(n + 1) td:nth-child(n + 3) {
+    text-align: center;
+}
+
+tr:nth-child(even) {
+    background-color: #49327721;
+}
+
+tbody tr:hover, .selected {
+    background-color: #49327741;
+}
+
+
+tfoot td {
+    text-align: center;
+    font-size: 75%;
+}
+
+#stats col {
+    width: 50px;
+}
+
+#stats col {
+    text-align: center;
+}
+
+#teams col:nth-child(2) {
+    width: 200px;
+}
