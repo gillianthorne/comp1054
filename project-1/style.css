@@ -9,7 +9,7 @@ html {
 	box-sizing: inherit;
 }
 
-/* --- COLOUR SETTING --- */
+/* --- COLOUR AND TYPEFACE SETTING --- */
 
 body {
     background-color: #1b1d20;
@@ -18,9 +18,15 @@ body {
     font-size: 14px;
     text-transform: lowercase;
     padding: 10px;
+    line-height: 1.18;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1, 
+h2, 
+h3, 
+h4, 
+h5, 
+h6 {
     color: #e2cd68;
 }
 
@@ -45,3 +51,57 @@ ul, ol {
     color: #25b41e;
 }
 
+/* --- MAKING THIS LOOK LIKE CODE --- */
+
+/* paragraphs look like blocks of code */
+/* display: block allows for the content to appear on its own line */
+p::before {
+    content: "{";
+    display: block;
+    color: #e2cd68;
+    margin-left: -2em;
+}
+
+p::after {
+    content: "}";
+    display: block;
+    color: #e2cd68;
+    margin-left: -2em;
+}
+
+p {
+    margin-left: 2em;
+}
+
+/* links look like html tags */
+a::before {
+    content: "<";
+}
+
+a::after {
+    content: ">"
+}
+
+/* lists look like python comments */
+ul li {
+    list-style-type: "# ";
+}
+
+/* every header except for the h1 will have a semicolon after it (the blinking cursor is instead of the semicolon for the h1, implying it is still being typed) */
+h2::after,
+h3::after,
+h4::after,
+h5::after,
+h6::after {
+    content: ";"
+}
+
+
+/* i can't get the blinking cursor to show up without text as the content (" " won't work for me) so i set some text content and then set the text colour to transparent.  */
+h1::after {
+    content: "_";
+    color: #1b1d2000;
+    background-image: url("images/blinking-cursor.gif");
+    background-size: contain;
+    /* filter: saturate(0%) brightness(100000%); */
+}
