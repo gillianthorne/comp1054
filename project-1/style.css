@@ -22,6 +22,7 @@ html {
     --link: #e268bf;
     --comment: #25b41e;
     --accent-yellow: #e2cd68;
+    --error-red: #dd2323;
     /* useful colours */
     --transparent: #00000000
 }
@@ -32,13 +33,18 @@ body {
     background-color: var(--background-dark);
     color: var(--text);
     font-family: monospace;
-    font-size: 14px;
+    font-size: 16px;
     text-transform: lowercase;
-    padding: 10px;
     line-height: 1.18;
+    padding: 15px
 }
 
-h1, 
+h1 {
+    color: var(--error-red);
+    text-decoration: underline dotted;
+    font-style: italic;
+}
+
 h2, 
 h3, 
 h4, 
@@ -64,7 +70,7 @@ a:hover {
 }
 
 /* i decided not to change the link colours on the lists just so that they're still obviously links */
-ul, ol {
+ul {
     color: var(--comment);
 }
 
@@ -108,6 +114,10 @@ ul li {
     list-style-type: "# ";
 }
 
+ol li::marker {
+    content: counter(list-item) " > ";
+}
+
 /* every header except for the h1 will have a semicolon after it (the blinking cursor is instead of the semicolon for the h1, implying it is still being typed) */
 h2::after,
 h3::after,
@@ -119,23 +129,66 @@ h6::after {
 
 
 /* i can't get the blinking cursor to show up without text as the content (" " won't work for me) so i set some text content and then set the text colour to transparent.  */
+/* using answers from this helped me figure out how to remove the dotted underline https://stackoverflow.com/questions/1238881/text-decoration-and-the-after-pseudo-element-revisited */
 h1::after {
-    content: "_";
+    content: ".";
     color: var(--transparent);
     background-image: url("images/blinking-cursor.gif");
     background-size: contain;
+    display: inline-block;
     /* filter: saturate(0%) brightness(100000%); */
+}
+
+blockquote::before {
+    content: "command prompt";
+    text-transform: uppercase;
+    background-color: var(--background-light);
+    display: block;
+    padding: 5px;
+    margin: -10px;
+}
+
+blockquote {
+    background: black;
+    padding: 10px;
+}
+
+blockquote p{
+    margin: 20px 0 0 0;
+}
+
+blockquote p::before {
+    display: inline;
+    margin: 0;
+    content: "C\\Users\\gillian\\style-stage>";
+    color: var(--text);
+    font-style: italic;
+}
+
+blockquote p::after {
+    display: none;
 }
 
 /* --- LAYOUT --- */
 
+/* header bar */
 header {
     /* border: 3px dashed white; */
-    padding: 0 20px;
-    margin: 0 auto;
+    padding: 20px 20px 40px 20px;
+    margin: -30px -15px 0 -15px;
     text-align: center;
     background-color: var(--background-light);
+    position: relative;
+    top: 0;
+    left: 0;
+    z-index: 0;
+}
 
+/* z-index keeps this on top of the header */
+.skip-link {
+    position: relative;
+    z-index: 100;
+    padding: 10px;
 }
 
 h1 {
@@ -147,32 +200,40 @@ header h2 {
     text-align: center;
 }
 
-header p::before {
+/* remove the code looking snippet */
+header p::before, header p::after {
     content: none;
 }
 
-header p::after {
-    content: none;
-}
-
+/* navigation */
+/* mars helped me with getting the sticky navigation working */
 nav {
-    margin: 0;
+    margin: -15px;
     position: sticky;
     top: 0;
-    left: 0;
-    background-color: var(--background-light);
+    background-color: var(--background-semitransparent);
 }
 nav ul {
     display: flex;
-    justify-content: space-evenly;
-    border: 3px dashed;
-    padding-left: 0;
+    padding:  0;
+    margin: 0 auto;
 }
 
 nav ul li {
+    padding: 10px;
     display: inline-flex;
+    flex: 1;
+    font-weight: bold;
+    /* width: fit-content; */
 }
 
+nav ul li:hover {
+    background-color: var(--background-light);
+}
+
+nav ul li a {
+    margin: 0 auto;
+}
 
 @media screen and (max-width: 480px) {
     
@@ -191,4 +252,10 @@ nav ul li {
 /* nav */
 /* phone screens */
 
+
+/* --- MAIN BODY */
+main, aside, footer {
+    width: 60%;
+    margin: 0 auto;
+} 
 
