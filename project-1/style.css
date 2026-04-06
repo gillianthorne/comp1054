@@ -9,11 +9,28 @@ html {
 	box-sizing: inherit;
 }
 
+/* --- VARIABLE SETTING --- */
+
+:root {
+    /* background */
+    --background-dark: #1b1d20;
+    --background-semitransparent: #1b1d20aa;
+    --background-light: #36393d;
+    /* text */
+    --text: #ebe9df;
+    --header: #8edbe8;
+    --link: #e268bf;
+    --comment: #25b41e;
+    --accent-yellow: #e2cd68;
+    /* useful colours */
+    --transparent: #00000000
+}
+
 /* --- COLOUR AND TYPEFACE SETTING --- */
 
 body {
-    background-color: #1b1d20;
-    color: #8edbe8;
+    background-color: var(--background-dark);
+    color: var(--text);
     font-family: monospace;
     font-size: 14px;
     text-transform: lowercase;
@@ -27,18 +44,18 @@ h3,
 h4, 
 h5, 
 h6 {
-    color: #e2cd68;
+    color: var(--header);
 }
 
 a {
-    color: #e268bf;
+    color: var(--link);
     text-decoration: none;
 }
 
 /* make the star tag match */
 /* svg fill: https://stackoverflow.com/a/65147574 */
 svg {
-    fill: #e268bf;
+    fill: var(--link);
     width: 12px;
 }
 
@@ -48,7 +65,11 @@ a:hover {
 
 /* i decided not to change the link colours on the lists just so that they're still obviously links */
 ul, ol {
-    color: #25b41e;
+    color: var(--comment);
+}
+
+strong {
+    color: var(--header);
 }
 
 /* --- MAKING THIS LOOK LIKE CODE --- */
@@ -58,14 +79,14 @@ ul, ol {
 p::before {
     content: "{";
     display: block;
-    color: #e2cd68;
+    color: var(--accent-yellow);
     margin-left: -2em;
 }
 
 p::after {
     content: "}";
     display: block;
-    color: #e2cd68;
+    color: var(--accent-yellow);
     margin-left: -2em;
 }
 
@@ -100,8 +121,74 @@ h6::after {
 /* i can't get the blinking cursor to show up without text as the content (" " won't work for me) so i set some text content and then set the text colour to transparent.  */
 h1::after {
     content: "_";
-    color: #1b1d2000;
+    color: var(--transparent);
     background-image: url("images/blinking-cursor.gif");
     background-size: contain;
     /* filter: saturate(0%) brightness(100000%); */
 }
+
+/* --- LAYOUT --- */
+
+header {
+    /* border: 3px dashed white; */
+    padding: 0 20px;
+    margin: 0 auto;
+    text-align: center;
+    background-color: var(--background-light);
+
+}
+
+h1 {
+    font-size: 40px;
+    text-align: center;
+}
+
+header h2 {
+    text-align: center;
+}
+
+header p::before {
+    content: none;
+}
+
+header p::after {
+    content: none;
+}
+
+nav {
+    margin: 0;
+    position: sticky;
+    top: 0;
+    left: 0;
+    background-color: var(--background-light);
+}
+nav ul {
+    display: flex;
+    justify-content: space-evenly;
+    border: 3px dashed;
+    padding-left: 0;
+}
+
+nav ul li {
+    display: inline-flex;
+}
+
+
+@media screen and (max-width: 480px) {
+    
+    nav ul {
+        display: inline-block;
+        margin-top: 0.5em;
+    }
+
+    nav ul li {
+        display: block;
+    }
+    /* body {
+        width: 80%;
+    } */
+}
+/* nav */
+/* phone screens */
+
+
