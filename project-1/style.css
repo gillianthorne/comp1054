@@ -140,7 +140,12 @@ h1::after {
 }
 
 blockquote::before {
-    content: "command prompt";
+    content: "   command prompt:";
+    white-space: pre;
+    background-image: 
+        url("images/console-icon.png");
+    background-size: contain;
+    background-repeat: no-repeat;
     text-transform: uppercase;
     background-color: var(--background-light);
     display: block;
@@ -148,9 +153,25 @@ blockquote::before {
     margin: -10px;
 }
 
+@media (min-width:640px) {
+    blockquote::before {
+        background-image: 
+        url("images/console-icon.png"),
+        url("images/browser-buttons.png");
+        background-position: 0%, 100%;
+        background-size: contain;
+        background-repeat: no-repeat;
+    }
+    
+}
+
+
+
 blockquote {
     background: black;
     padding: 10px;
+    border-radius: 2%;
+    padding-bottom: 70px;
 }
 
 blockquote p{
