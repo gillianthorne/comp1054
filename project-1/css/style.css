@@ -133,7 +133,7 @@ h6::after {
 h1::after {
     content: ".";
     color: var(--transparent);
-    background-image: url("images/blinking-cursor.gif");
+    background-image: url("../images/blinking-cursor.gif");
     background-size: contain;
     display: inline-block;
     /* filter: saturate(0%) brightness(100000%); */
@@ -143,7 +143,7 @@ blockquote::before {
     content: "   command prompt:";
     white-space: pre;
     background-image: 
-        url("images/console-icon.png");
+        url("../images/console-icon.png");
     background-size: contain;
     background-repeat: no-repeat;
     text-transform: uppercase;
@@ -231,14 +231,17 @@ nav{
     top: 0;
     /* margin-top: -50px; */
     padding: 20px;
-    background-color: var(--background-semitransparent);
-    width: 20%;
+    background-color: var(--background-light);
+    border-radius: 50%;
+    margin-top: 10px;
     left: 80%;
 }
 
 nav.open {
     width: 100%;
     left: 0;
+    border-radius: 0;
+    margin-top: 0;
 }
 
 nav:not(.open) ul {
@@ -274,4 +277,4 @@ nav ul li:hover {
     background-color: var(--background-light);
 }
 
-/* nav ul.open  */
+/* body */
