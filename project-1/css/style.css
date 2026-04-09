@@ -158,11 +158,11 @@ blockquote::before {
 }
 
 /* did some math here, felt the minimum width that would look good with the buttons would be 640px. this way it doesn't overlap with the text.  */
-@media (min-width:640px) {
+@media (min-width:350px) {
     blockquote::before {
         background-image: 
-        url("images/console-icon.png"),
-        url("images/browser-buttons.png");
+        url("../images/console-icon.png"),
+        url("../images/browser-buttons.png");
         background-position: 0%, 100%;
         background-size: contain;
         background-repeat: no-repeat;
@@ -180,6 +180,7 @@ blockquote {
     border: 1px var(--background-light) solid;
     /* very very faint drop shadow to mimic on my laptop */
     box-shadow: 3px 3px 3px #131416;
+    max-width: 500px;
 }
 
 blockquote p{
@@ -327,4 +328,13 @@ footer ul li {
 footer ul li a {
     padding: 8px;
     display: block;
+}
+
+/* setting things up for wider screens now */
+@media screen and (min-width: 425px) {
+    
+}
+
+@media screen and (min-width: 768px) {
+    
 }
