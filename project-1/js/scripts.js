@@ -1,6 +1,6 @@
 nav = document.querySelector("nav");
 
-nav.addEventListener("click", (event) => {
+nav.addEventListener("click", () => {
     if (nav.classList.contains("open")) {
         nav.classList.remove("open");
     } else {

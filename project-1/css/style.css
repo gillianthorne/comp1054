@@ -225,21 +225,28 @@ header {
 
 h1{
     font-size: 40px;
+}
+
+/* we want all text in the header to be centred */
+header .container {
     text-align: center;
 }
 
-header h2 {
-    text-align: center;
+/* it needs to be an inline-block to add margins */
+header .container > a {
+    display: inline-block;
+    margin-top: 10px;
 }
 
 /* remove the code looking skippet of header p as well as any margins */
-/* i'm not sure if removing content from pseudoelements removes everything from them so setting the margin on them to 0 just in case */
+/* i'm not sure if removing content from pseudoelements removes everything from them so setting the margin on them to 0 just in case, throwing text align center on there just so i don't have another seperate thing for the paragraph */
 header p::before, header p::after, header p {
     content: "";
     margin: 0;
 }
 
-nav{
+/* position: fixed is like position: sticky but it stays there */
+nav {
     position: fixed;
     top: 0;
     /* margin-top: -50px; */
@@ -249,12 +256,9 @@ nav{
     width: 100%;
 }
 
-/* nav.open {
-    width: 100%;
-    left: 0;
-    border-radius: 0;
-    margin-top: 0;
-} */
+nav.open {
+    height: 100vh;
+}
 
 nav:not(.open) ul {
     display: none
