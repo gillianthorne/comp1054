@@ -36,7 +36,7 @@ body {
     font-size: 16px;
     text-transform: lowercase;
     line-height: 1.18;
-    padding: 15px
+    margin: 0;
 }
 
 h1 {
@@ -194,25 +194,23 @@ blockquote p::after {
 
 /* header bar */
 header {
-    /* border: 3px dashed white; */
-    padding: 20px 20px 40px 20px;
-    margin: -30px -15px 0 -15px;
-    text-align: center;
     background-color: var(--background-light);
     position: relative;
-    top: 0;
     left: 0;
+    padding: 30px 20px;
     z-index: 0;
 }
 
 /* z-index keeps this on top of the header */
 .skip-link {
-    position: relative;
+    position: absolute;
+    top: 0;
+    left: 0;
     z-index: 100;
     padding: 10px;
 }
 
-h1 {
+h1{
     font-size: 40px;
     text-align: center;
 }
@@ -221,62 +219,59 @@ header h2 {
     text-align: center;
 }
 
-/* remove the code looking snippet */
-header p::before, header p::after {
-    content: none;
+/* remove the code looking skippet of header p as well as any margins */
+/* i'm not sure if removing content from pseudoelements removes everything from them so setting the margin on them to 0 just in case */
+header p::before, header p::after, header p {
+    content: "";
+    margin: 0;
 }
 
-/* navigation */
-/* mars helped me with getting the sticky navigation working */
-nav {
-    margin: -15px;
-    position: sticky;
+nav{
+    position: fixed;
     top: 0;
+    /* margin-top: -50px; */
+    padding: 20px;
     background-color: var(--background-semitransparent);
+    width: 20%;
+    left: 80%;
 }
+
+nav.open {
+    width: 100%;
+    left: 0;
+}
+
+nav:not(.open) ul {
+    display: none
+}
+/* mobile nav bar */
+nav::before {
+    content: "☰";
+    display: block;
+    text-align: right;
+    width: 100%;
+}
+
 nav ul {
-    display: flex;
-    padding:  0;
-    margin: 0 auto;
+    display: block;
+    margin-top: 0.5em;
+    width: 100%;
+    padding: 0;
 }
 
 nav ul li {
+    display: block;
     padding: 10px;
-    display: inline-flex;
-    flex: 1;
-    font-weight: bold;
-    /* width: fit-content; */
+}
+
+nav ul li a {
+    display: block;
+    text-align: center;
+    width: 100%;
 }
 
 nav ul li:hover {
     background-color: var(--background-light);
 }
 
-nav ul li a {
-    margin: 0 auto;
-}
-
-@media screen and (max-width: 480px) {
-    
-    nav ul {
-        display: inline-block;
-        margin-top: 0.5em;
-    }
-
-    nav ul li {
-        display: block;
-    }
-    /* body {
-        width: 80%;
-    } */
-}
-/* nav */
-/* phone screens */
-
-
-/* --- MAIN BODY */
-main, aside, footer {
-    width: 60%;
-    margin: 0 auto;
-} 
-
+/* nav ul.open  */
