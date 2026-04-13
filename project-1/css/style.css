@@ -381,18 +381,25 @@ footer ul li a {
         width: 768px;
     }
 
-    nav::before {
+    /* have to add all of these because i have called them at some point */
+    nav::before, nav.expanded::before, nav:not(.expanded)::before {
         content: "";
+        padding: 0;
     }
 
-    nav {
+    nav, nav.expanded, nav:not(.expanded) {
         position: sticky;
         background-color: var(--background-light);
         padding: 0;
+        width: 100%;
+        border-radius: 0;
+        margin-top: 0;
+        margin: 0 auto;
     }
 
     nav ul li {
         white-space: nowrap;
+        padding: 5px
     }
 
     nav ul li:hover {
