@@ -183,7 +183,7 @@ blockquote {
     max-width: 500px;
 }
 
-blockquote p{
+blockquote p {
     margin: 20px 0 0 0;
 }
 
@@ -213,6 +213,10 @@ header {
     left: 0;
     padding: 30px 20px;
     z-index: 0;
+    border-width: 15px;
+    border-style: solid;
+    border-image: url("../images/border-image.png");
+    border-image-slice: 60;
 }
 
 /* z-index keeps this on top of the header */
@@ -247,14 +251,31 @@ header p::before, header p::after, header p {
 }
 
 /* position: fixed is like position: sticky but it stays there */
-nav {
+nav.expanded {
     position: fixed;
     top: 0;
-    /* margin-top: -50px; */
     padding: 20px;
     background-color: var(--background-light-semitransparent);
     left: 0;
     width: 100%;
+}
+
+nav:not(.expanded) {
+    position: fixed;
+    top: 0;
+    padding: 20px;
+    background-color: var(--background-dark);
+    right: 0;
+    width: 55px;
+    border-radius: 50%;
+    margin: 5px;
+}
+
+nav:not(.expanded)::before {
+    content: "☰";
+    display: block;
+    width: 100%;
+    /* text-align: right; */
 }
 
 nav.open {
@@ -264,12 +285,13 @@ nav.open {
 nav:not(.open) ul {
     display: none
 }
-/* mobile nav bar */
-nav::before {
+
+nav.expanded::before {
     content: "☰";
     display: block;
     text-align: right;
     width: 100%;
+    padding-right: 6px;
 }
 
 nav ul {
@@ -336,5 +358,34 @@ footer ul li a {
 }
 
 @media screen and (min-width: 768px) {
-    
+    main, aside, body > footer {
+        width: 768px;
+        margin: 0 auto ;
+    }
+
+    nav ul, nav:not(.open) ul {
+        display: flex;
+        margin: 0 auto;
+        justify-content:center;
+        width: 768px;
+    }
+
+    nav::before {
+        content: "";
+    }
+
+    nav {
+        position: sticky;
+        background-color: var(--background-light);
+        padding: 0;
+    }
+
+    nav ul li {
+        white-space: nowrap;
+    }
+
+    nav ul li:hover {
+        background-color: var(--background-dark);
+    }
+
 }
