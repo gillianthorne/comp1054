@@ -4,7 +4,7 @@ header = document.querySelector("header .container");
 nav.addEventListener("click", () => {
     if (nav.classList.contains("open")) {
         nav.classList.remove("open");
-    } else {
+    } else if (window.innerWidth <= 768) {
         nav.classList.add("open");
     }
 })
