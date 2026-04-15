@@ -25,7 +25,8 @@ html {
     --accent-yellow: #e2cd68;
     --error-red: #dd2323;
     /* useful colours */
-    --transparent: #00000000
+    --transparent: #00000000;
+    --dropshadow: #131416;
 }
 
 /* --- COLOUR AND TYPEFACE SETTING --- */
@@ -179,7 +180,7 @@ blockquote {
     margin: 0 auto;
     border: 1px var(--background-light) solid;
     /* very very faint drop shadow to mimic on my laptop */
-    box-shadow: 3px 3px 3px #131416;
+    box-shadow: 3px 3px 3px var(--dropshadow);
     max-width: 500px;
 }
 
@@ -212,7 +213,7 @@ header {
     position: relative;
     left: 0;
     padding: 30px 20px;
-    z-index: 0;
+    z-index: 25;
     border-width: 15px;
     border-style: solid;
     border-image: url("../images/border-image.png");
@@ -258,6 +259,7 @@ nav.expanded {
     background-color: var(--background-light-semitransparent);
     left: 0;
     width: 100%;
+    z-index: 200;
 }
 
 nav:not(.expanded) {
@@ -363,6 +365,24 @@ footer ul li a {
     display: block;
 }
 
+main footer  {
+    text-align: center;
+}
+
+main article {
+    padding: 20px 0 0 0;
+}
+
+#about::before, #guidelines::before, #contribute::before {
+    content: "/* ---------- */";
+    position: relative;
+    top: -10px;
+    z-index: 0;
+    color: var(--comment);
+    display: block;
+    text-align: center;
+}
+
 /* setting things up for wider screens now */
 @media screen and (min-width: 425px) {
     
@@ -405,5 +425,4 @@ footer ul li a {
     nav ul li:hover {
         background-color: var(--background-dark);
     }
-
 }
