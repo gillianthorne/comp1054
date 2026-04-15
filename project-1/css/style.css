@@ -425,4 +425,31 @@ main article {
     nav ul li:hover {
         background-color: var(--background-dark);
     }
+
+    aside {
+        width: 384px;
+        float: left;
+        margin: 5px;
+    }
+
+    aside:first-of-type {
+        margin-left: calc(50% - 384px);
+    }
+
+    footer {
+        clear: both;
+    }
+
+    aside {
+        text-align: center;
+    }
+
+    aside h4, aside h2 {
+        font-size: 1.2rem;
+        margin: 0;
+    }
+
+    aside ul {
+        text-align: left;
+    }
 }
