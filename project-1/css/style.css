@@ -158,7 +158,7 @@ blockquote::before {
     margin: -10px;
 }
 
-/* did some math here, felt the minimum width that would look good with the buttons would be 640px. this way it doesn't overlap with the text.  */
+/* did some math here, felt the minimum width that would look good with the buttons would be 350px. this way it doesn't overlap with the text.  */
 @media (min-width:350px) {
     blockquote::before {
         background-image: 
@@ -213,7 +213,7 @@ header {
     position: relative;
     left: 0;
     padding: 30px 20px;
-    z-index: 25;
+    z-index: 0;
     border-width: 15px;
     border-style: solid;
     border-image: url("../images/border-image.png");
@@ -277,7 +277,6 @@ nav:not(.expanded)::before {
     content: "☰";
     display: block;
     width: 100%;
-    /* text-align: right; */
 }
 
 nav.open {
